@@ -12,12 +12,12 @@
   },
   "author": "Zamaneh Media",
   "devDependencies": {
-    "451-tools": "^2.1.1",
+    "451-tools": "^2.2.0",
     "cpy-cli": "^5.0.0",
     "eslint": "^8.57.0",
     "md5-file": "^5.0.0",
-    "replace-in-file": "^7.1.0",
-    "vite": "^5.1.4",
+    "replace-in-file": "^8.3.0",
+    "vite": "^6.3.5",
     "vite-plugin-eslint": "^1.8.1"
   }
 }
