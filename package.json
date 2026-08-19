@@ -12,7 +12,7 @@
   },
   "author": "Zamaneh Media",
   "devDependencies": {
-    "451-tools": "^2.1.1",
+    "451-tools": "^0.0.0-canary",
     "cpy-cli": "^5.0.0",
     "eslint": "^8.57.0",
     "md5-file": "^5.0.0",
