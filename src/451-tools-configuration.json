@@ -26,5 +26,11 @@
       "^/wp-login\\.php$"
     ],
     "timeout": "__TIMEOUT__"
+  },
+  "bookmark": {
+    "enabled": "__BOOKMARKS_ENABLED__"
+  },
+  "contentBundles": {
+    "pages": "__CONTENT_BUNDLES__"
   }
 }
