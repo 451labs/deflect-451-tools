@@ -1,0 +1,45 @@
+name: Update dist
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/update-dist.yaml'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.js'
+
+permissions:
+  contents: write
+
+jobs:
+  update-dist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Commit and push updated dist files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/
+          if git diff --cached --quiet; then
+            echo "No dist changes to commit."
+          else
+            git commit -m "Update dist build [skip ci]"
+            git push
+          fi
