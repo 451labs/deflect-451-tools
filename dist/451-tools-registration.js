@@ -2,7 +2,7 @@
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
       const serviceWorkerUrl = `/451-tools.js?configuration=${encodeURIComponent(
-        '/451-tools-configuration.json?v=37c690430adf5546d61b2b2700b9845f'
+        '/451-tools-configuration.json?v=943ede194fe20fe5463e2838795eff32'
       )}`;
 
       navigator.serviceWorker
