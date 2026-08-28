@@ -39,3 +39,11 @@ This command will generate the following files:
 - `dist/451-tools-configuration.json`
 
 Make sure to serve all files in the website's root. Import `451-tools-registration.js` in every page, either inline it or use a script tag.
+
+### Bookmarks
+To enable or disable bookmarks, replace `self.__BOOKMARKS_ENABLED__` with `true` or `false` in `dist/451-tools.js`.
+
+### Content bundles
+To enable or disable bookmarks:
+- Replace `self.__CONTENT_BUNDLES_ENABLED__` with `true` or `false` in `dist/451-tools.js`.
+- Replace `"__CONTENT_BUNDLES_CONFIG__"` with content bundle JSON config.
