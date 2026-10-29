@@ -13,10 +13,13 @@ const serviceWorkerController = registerServiceWorkerController();
 registerFallbackPages({ serviceWorkerController });
 registerMirroring({ serviceWorkerController });
 
-if (self.__BOOKMARKS_ENABLED__) {
-  registerBookmarkApi({ serviceWorkerController });
-}
+// if (self.__BOOKMARKS_ENABLED__) {
+//   registerBookmarkApi({ serviceWorkerController });
+// }
+//
+// if (self.__CONTENT_BUNDLES_ENABLED__) {
+//   registerContentBundles({ serviceWorkerController });
+// }
 
-if (self.__CONTENT_BUNDLES_ENABLED__) {
-  registerContentBundles({ serviceWorkerController });
-}
+registerBookmarkApi({ serviceWorkerController });
+registerContentBundles({ serviceWorkerController });
