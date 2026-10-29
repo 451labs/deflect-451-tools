@@ -22,7 +22,7 @@
   "mirroring": {
     "urls": [__MIRRORS__],
     "excludeByPath": ["^/wp-admin/?.*", "^/wp-login\\.php$"],
-    "excludeByCookieName": [],
+    "excludeByCookieName": ["deflect_password3"],
     "timeout": __TIMEOUT__,
     "strategy": "network-only",
     "setRepressHeaders": true,
