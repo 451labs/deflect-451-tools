@@ -1,31 +1,35 @@
 {
   "fallbackPages": {
     "customProperties": {
-      "background-color": "#e5dcd4",
-      "border-color": "#4d429a",
+      "background-color": "#ecece2",
+      "border-color": "#e43623",
       "card-background-color": "#f8f1ff",
       "card-box-shadow": "0px 8px 24px rgba(149, 157, 165, 0.2)",
       "container-width": "1200px",
-      "icon-color": "#4d429a",
-      "primary-color": "#4d429a",
-      "tab-text-color": "#4d429a",
-      "text-color": "#2c1f36"
+      "icon-color": "#e43623",
+      "primary-color": "#e43623",
+      "tab-text-color": "#e43623",
+      "text-color": "#000000"
     },
     "templateStrings": {
-      "pageTitle": "451 Tools Dashboard",
-      "pageDescription": "You are on the offline dashboard of 451 Tools. This could be because you are facing an internet shutdown or your device is not connected to the internet. This dashboard keeps information available even when the website is censored or when the internet is down.<br />\r\n",
-      "aboutInnerHTML": "<p>Zamaneh Media's <a href='https://451.tools/' target='_blank'>451 Tools</a> implements website features that aid in the censorship resilience of your website. Besides helping publishers create mirrors, the full 451 suite also allows them to keep content available under heavily censored conditions.</p><p>The <strong>Bookmark</strong> feature allows readers to bookmark content on your website for offline reading.</p><p>The <strong>Editorial</strong> feature allows you to mark content for offline availability to your readers at any time.</p><p>Additionally, the full 451 Tools suite also allows you to customise this dashboard as well as enable custom 404 page for when your readers try to reach you through referral links on search engines and elsewhere.</p><p>To get access to the full 451 Tools suite or enquire about it, please reach out to <a href='mailto:contact@451.tools'>contact@451.tools</a>.</p>",
-      "copyright": "Copyright \u00a9 2023. All rights reserved."
+      "pageTitle": "whyublockme.farmal.in",
+      "pageDescription": "Похоже, сайт whyublockme.farmal.in не открывается. Это может быть из-за проблем с сетью или из-за блокировок. Пожалуйста, проверьте ваше соединение и попробуйте снова. It seems you're unable to connect to whyublockme.farmal.in. This could be due to network issues on your end or because access to whyublockme.farmal.in has been blocked. Please check your connection and try again.",
+      "aboutInnerHTML": "<p>\u0427\u0442\u043e \u043c\u043e\u0436\u043d\u043e \u0441\u0434\u0435\u043b\u0430\u0442\u044c, \u0435\u0441\u043b\u0438 whyublockme.farmal.in \u043d\u0435 \u043e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u0442\u0441\u044f:</p> <ol>\n  <li>\u041f\u0440\u043e\u0432\u0435\u0440\u044c\u0442\u0435 \u0432 \u0441\u043e\u0446\u0441\u0435\u0442\u044f\u0445, \u043d\u0435 \u0438\u0437\u043c\u0435\u043d\u0438\u043b\u0441\u044f \u043b\u0438 \u0441\u0430\u0439\u0442 \u043f\u0440\u043e\u0435\u043a\u0442\u0430 \u2014 \u0442\u0430\u043a\u043e\u0435 \u0431\u044b\u0432\u0430\u0435\u0442 \u0438\u0437-\u0437\u0430 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043e\u043a.</li>\n  <li>\u0412\u043e\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439\u0442\u0435\u0441\u044c VPN \u0438\u043b\u0438 \u043f\u0440\u043e\u043a\u0441\u0438.</li>\n  <li>\u041e\u0442\u043a\u0440\u043e\u0439\u0442\u0435 \u0437\u0430\u043f\u0430\u0441\u043d\u043e\u0439 \u0430\u0434\u0440\u0435\u0441 \u044d\u0442\u043e\u0433\u043e \u0441\u0430\u0439\u0442\u0430 <a href=\\\"https://None\\\" target=\\\"_blank\\\">None</a></li>\n</ol> <p>If you are not able to access whyublockme.farmal.in, please try: <ol>\n  <li>Checking for new address on whyublockme.farmal.in social media</li>\n  <li>Using a VPN or proxy</li>\n  <li>Connecting to the backup domain <a href=\\\"https://None\\\" target=\\\"_blank\\\">None</a></li>\n</ol>\n",
+      "copyright": "Система обхода блокировок Deflect. Мы помогаем сайтам медиа и НКО оставаться доступными в самых сложных условиях. Powered by Deflect. We help publishers maintain reach and readership under the most adversarial circumstances."
     },
     "showHiddenTabs": true
   },
   "mirroring": {
     "urls": [__MIRRORS__],
-    "excludeByPath": [
-      "^/wp-admin/?.*",
-      "^/wp-login\\.php$"
-    ],
-    "timeout": __TIMEOUT__
+    "excludeByPath": ["^/wp-admin/?.*", "^/wp-login\\.php$"],
+    "excludeByCookieName": ["deflect_password3"],
+    "timeout": __TIMEOUT__,
+    "strategy": "network-only",
+    "setRepressHeaders": true,
+    "challenge": {"path": "/_deflect/challenge", "publicKey": "lJxJm/w+XRKsfBHw7eMHlDH/eiUJAg47Kq2NHwJt2Ww="},
+    "telemetry": {"endpoint": "https://snare.tools/i/0dyx0hcu6z80w5l6m9r3y9txnp"}
   },
-  "contentBundles": "__CONTENT_BUNDLES_CONFIG__"
+  "contentBundles": {
+    "pages": [{"url": "/sample-page/","revision": "1"}]
+  }
 }
