@@ -2,7 +2,7 @@ var ne = (e) => {
   throw TypeError(e);
 };
 var oe = (e, t, r) => t.has(e) || ne("Cannot " + r);
-var q = (e, t, r) => (oe(e, t, "read from private field"), r ? r.call(e) : t.get(e)), se = (e, t, r) => t.has(e) ? ne("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, r), O = (e, t, r, n) => (oe(e, t, "write to private field"), n ? n.call(e, r) : t.set(e, r), r);
+var q = (e, t, r) => (oe(e, t, "read from private field"), r ? r.call(e) : t.get(e)), ae = (e, t, r) => t.has(e) ? ne("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, r), O = (e, t, r, n) => (oe(e, t, "write to private field"), n ? n.call(e, r) : t.set(e, r), r);
 try {
   self["workbox:core:7.4.0"] && _();
 } catch {
@@ -21,14 +21,14 @@ const $e = {
   "incorrect-type": ({ expectedType: e, paramName: t, moduleName: r, className: n, funcName: o }) => {
     if (!e || !t || !r || !o)
       throw new Error("Unexpected input to 'incorrect-type' error.");
-    const s = n ? `${n}.` : "";
-    return `The parameter '${t}' passed into '${r}.${s}${o}()' must be of type ${e}.`;
+    const a = n ? `${n}.` : "";
+    return `The parameter '${t}' passed into '${r}.${a}${o}()' must be of type ${e}.`;
   },
-  "incorrect-class": ({ expectedClassName: e, paramName: t, moduleName: r, className: n, funcName: o, isReturnValueProblem: s }) => {
+  "incorrect-class": ({ expectedClassName: e, paramName: t, moduleName: r, className: n, funcName: o, isReturnValueProblem: a }) => {
     if (!e || !r || !o)
       throw new Error("Unexpected input to 'incorrect-class' error.");
-    const a = n ? `${n}.` : "";
-    return s ? `The return value from '${r}.${a}${o}()' must be an instance of class ${e}.` : `The parameter '${t}' passed into '${r}.${a}${o}()' must be an instance of class ${e}.`;
+    const s = n ? `${n}.` : "";
+    return a ? `The return value from '${r}.${s}${o}()' must be an instance of class ${e}.` : `The parameter '${t}' passed into '${r}.${s}${o}()' must be an instance of class ${e}.`;
   },
   "missing-a-method": ({ expectedMethod: e, paramName: t, moduleName: r, className: n, funcName: o }) => {
     if (!e || !t || !r || !n || !o)
@@ -61,7 +61,7 @@ const $e = {
   "duplicate-queue-name": ({ name: e }) => `The Queue name '${e}' is already being used. All instances of backgroundSync.Queue must be given unique names.`,
   "expired-test-without-max-age": ({ methodName: e, paramName: t }) => `The '${e}()' method can only be used when the '${t}' is used in the constructor.`,
   "unsupported-route-type": ({ moduleName: e, className: t, funcName: r, paramName: n }) => `The supplied '${n}' parameter was an unsupported type. Please check the docs for ${e}.${t}.${r} for valid input types.`,
-  "not-array-of-class": ({ value: e, expectedClass: t, moduleName: r, className: n, funcName: o, paramName: s }) => `The supplied '${s}' parameter must be an array of '${t}' objects. Received '${JSON.stringify(e)},'. Please check the call to ${r}.${n}.${o}() to fix the issue.`,
+  "not-array-of-class": ({ value: e, expectedClass: t, moduleName: r, className: n, funcName: o, paramName: a }) => `The supplied '${a}' parameter must be an array of '${t}' objects. Received '${JSON.stringify(e)},'. Please check the call to ${r}.${n}.${o}() to fix the issue.`,
   "max-entries-or-age-required": ({ moduleName: e, className: t, funcName: r }) => `You must define either config.maxEntries or config.maxAgeSecondsin ${e}.${t}.${r}`,
   "statuses-or-headers-required": ({ moduleName: e, className: t, funcName: r }) => `You must define either config.statuses or config.headersin ${e}.${t}.${r}`,
   "invalid-string": ({ moduleName: e, funcName: t, paramName: r }) => {
@@ -172,33 +172,33 @@ const N = process.env.NODE_ENV === "production" ? null : (() => {
     groupCollapsed: "#3498db",
     groupEnd: null
     // No colored prefix on groupEnd
-  }, r = function(s, a) {
+  }, r = function(a, s) {
     if (self.__WB_DISABLE_DEV_LOGS)
       return;
-    if (s === "groupCollapsed" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-      console[s](...a);
+    if (a === "groupCollapsed" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+      console[a](...s);
       return;
     }
     const i = [
-      `background: ${t[s]}`,
+      `background: ${t[a]}`,
       "border-radius: 0.5em",
       "color: white",
       "font-weight: bold",
       "padding: 2px 0.5em"
     ], c = e ? [] : ["%cworkbox", i.join(";")];
-    console[s](...c, ...a), s === "groupCollapsed" && (e = !0), s === "groupEnd" && (e = !1);
+    console[a](...c, ...s), a === "groupCollapsed" && (e = !0), a === "groupEnd" && (e = !1);
   }, n = {}, o = Object.keys(t);
-  for (const s of o) {
-    const a = s;
-    n[a] = (...i) => {
-      r(a, i);
+  for (const a of o) {
+    const s = a;
+    n[s] = (...i) => {
+      r(s, i);
     };
   }
   return n;
 })(), He = (e, t) => t.some((r) => e instanceof r);
-let ae, ie;
+let se, ie;
 function Ue() {
-  return ae || (ae = [
+  return se || (se = [
     IDBDatabase,
     IDBObjectStore,
     IDBIndex,
@@ -217,13 +217,13 @@ const pe = /* @__PURE__ */ new WeakMap(), Y = /* @__PURE__ */ new WeakMap(), fe 
 function Se(e) {
   const t = new Promise((r, n) => {
     const o = () => {
-      e.removeEventListener("success", s), e.removeEventListener("error", a);
-    }, s = () => {
-      r(x(e.result)), o();
+      e.removeEventListener("success", a), e.removeEventListener("error", s);
     }, a = () => {
+      r(x(e.result)), o();
+    }, s = () => {
       n(e.error), o();
     };
-    e.addEventListener("success", s), e.addEventListener("error", a);
+    e.addEventListener("success", a), e.addEventListener("error", s);
   });
   return t.then((r) => {
     r instanceof IDBCursor && pe.set(r, e);
@@ -235,13 +235,13 @@ function Ie(e) {
     return;
   const t = new Promise((r, n) => {
     const o = () => {
-      e.removeEventListener("complete", s), e.removeEventListener("error", a), e.removeEventListener("abort", a);
-    }, s = () => {
-      r(), o();
+      e.removeEventListener("complete", a), e.removeEventListener("error", s), e.removeEventListener("abort", s);
     }, a = () => {
+      r(), o();
+    }, s = () => {
       n(e.error || new DOMException("AbortError", "AbortError")), o();
     };
-    e.addEventListener("complete", s), e.addEventListener("error", a), e.addEventListener("abort", a);
+    e.addEventListener("complete", a), e.addEventListener("error", s), e.addEventListener("abort", s);
   });
   Y.set(e, t);
 }
@@ -289,17 +289,17 @@ function x(e) {
   return t !== e && (V.set(e, t), Q.set(t, e)), t;
 }
 const G = (e) => Q.get(e);
-function Ge(e, t, { blocked: r, upgrade: n, blocking: o, terminated: s } = {}) {
-  const a = indexedDB.open(e, t), i = x(a);
-  return n && a.addEventListener("upgradeneeded", (c) => {
-    n(x(a.result), c.oldVersion, c.newVersion, x(a.transaction), c);
-  }), r && a.addEventListener("blocked", (c) => r(
+function Ge(e, t, { blocked: r, upgrade: n, blocking: o, terminated: a } = {}) {
+  const s = indexedDB.open(e, t), i = x(s);
+  return n && s.addEventListener("upgradeneeded", (c) => {
+    n(x(s.result), c.oldVersion, c.newVersion, x(s.transaction), c);
+  }), r && s.addEventListener("blocked", (c) => r(
     // Casting due to https://github.com/microsoft/TypeScript-DOM-lib-generator/pull/1405
     c.oldVersion,
     c.newVersion,
     c
   )), i.then((c) => {
-    s && c.addEventListener("close", () => s()), o && c.addEventListener("versionchange", (u) => o(u.oldVersion, u.newVersion, u));
+    a && c.addEventListener("close", () => a()), o && c.addEventListener("versionchange", (u) => o(u.oldVersion, u.newVersion, u));
   }).catch(() => {
   }), i;
 }
@@ -324,15 +324,15 @@ function ce(e, t) {
     !(r in (n ? IDBIndex : IDBObjectStore).prototype) || !(o || We.includes(r))
   )
     return;
-  const s = async function(a, ...i) {
-    const c = this.transaction(a, o ? "readwrite" : "readonly");
+  const a = async function(s, ...i) {
+    const c = this.transaction(s, o ? "readwrite" : "readonly");
     let u = c.store;
     return n && (u = u.index(i.shift())), (await Promise.all([
       u[r](...i),
       o && c.done
     ]))[0];
   };
-  return J.set(t, s), s;
+  return J.set(t, a), a;
 }
 Fe((e) => ({
   ...e,
@@ -394,10 +394,10 @@ class Ke {
       // Edge switches to Chromium and all browsers we support work with
       // array keyPaths.
       id: this._getId(t)
-    }, s = (await this.getDb()).transaction(A, "readwrite", {
+    }, a = (await this.getDb()).transaction(A, "readwrite", {
       durability: "relaxed"
     });
-    await s.store.put(n), await s.done;
+    await a.store.put(n), await a.done;
   }
   /**
    * Returns the timestamp stored for a given URL.
@@ -425,14 +425,14 @@ class Ke {
   async expireEntries(t, r) {
     const n = await this.getDb();
     let o = await n.transaction(A).store.index("timestamp").openCursor(null, "prev");
-    const s = [];
-    let a = 0;
+    const a = [];
+    let s = 0;
     for (; o; ) {
       const c = o.value;
-      c.cacheName === this._cacheName && (t && c.timestamp < t || r && a >= r ? s.push(o.value) : a++), o = await o.continue();
+      c.cacheName === this._cacheName && (t && c.timestamp < t || r && s >= r ? a.push(o.value) : s++), o = await o.continue();
     }
     const i = [];
-    for (const c of s)
+    for (const c of a)
       await n.delete(A, c.id), i.push(c.url);
     return i;
   }
@@ -577,13 +577,13 @@ function ee({
   fetcher: n = fetch
 }) {
   const { request: o } = t;
-  return n(o).then((s) => {
-    const a = s.clone();
-    return s.ok && caches.open(e).then((i) => i.put(o, a)).then(async () => {
+  return n(o).then((a) => {
+    const s = a.clone();
+    return a.ok && caches.open(e).then((i) => i.put(o, s)).then(async () => {
       r && (await r.updateTimestamp(o.url), await r.expireEntries());
-    }), s;
+    }), a;
   }).catch(
-    () => caches.open(e).then((s) => s.match(o, { ignoreSearch: !0 }))
+    () => caches.open(e).then((a) => a.match(o, { ignoreSearch: !0 }))
   );
 }
 function Qe({
@@ -593,17 +593,17 @@ function Qe({
   fetcher: n = fetch
 }) {
   const { request: o } = t;
-  return caches.open(e).then((s) => s.match(o, { ignoreSearch: !0 })).then(async (s) => s ? (t.waitUntil(
-    n(o).then(async (a) => {
-      if (a.ok) {
-        const i = a.clone();
+  return caches.open(e).then((a) => a.match(o, { ignoreSearch: !0 })).then(async (a) => a ? (t.waitUntil(
+    n(o).then(async (s) => {
+      if (s.ok) {
+        const i = s.clone();
         caches.open(e).then((c) => c.put(o.url, i)).then(async () => {
           r && (await r.updateTimestamp(o.url), await r.expireEntries());
         });
       }
-      return a;
+      return s;
     })
-  ), s) : n(o).then((a) => a.ok ? caches.open(e).then((i) => i.put(o, a.clone())).then(() => a) : a));
+  ), a) : n(o).then((s) => s.ok ? caches.open(e).then((i) => i.put(o, s.clone())).then(() => s) : s));
 }
 function Ze(e) {
   const t = JSON.stringify(e);
@@ -625,15 +625,15 @@ async function F(e) {
   ));
 }
 async function B(e, t) {
-  const r = await D(), n = r.find((a) => a.url === e), o = {
+  const r = await D(), n = r.find((s) => s.url === e), o = {
     ...n,
     lastModified: Date.now(),
     status: t
-  }, s = [
-    ...r.filter((a) => a.url !== e),
+  }, a = [
+    ...r.filter((s) => s.url !== e),
     o
   ];
-  await F(s).then(() => {
+  await F(a).then(() => {
     n.status !== t && Ze({
       type: "mirror-status-changed",
       mirror: e,
@@ -676,7 +676,7 @@ let nt = "useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict", ot 
     t += nt[r[e] & 63];
   return t;
 };
-const st = "deflect-challenge-v1", ye = st, X = {
+const at = "deflect-challenge-v1", ye = at, X = {
   "x-repress": {
     challenge: "X-RePress-Challenge",
     response: "X-RePress-Challenge-Response",
@@ -687,7 +687,7 @@ const st = "deflect-challenge-v1", ye = st, X = {
     response: "451-Tools-Mirror-Challenge-Response",
     keyId: "451-Tools-Mirror-Challenge-Key-ID"
   }
-}, at = "x-repress";
+}, st = "x-repress";
 async function it({ origin: e, challenge: t }) {
   const r = ot(), n = X[t.headerFormat], o = await lt({
     origin: e,
@@ -704,11 +704,11 @@ async function it({ origin: e, challenge: t }) {
     context: t.context || ye
   }) : !1;
 }
-async function ct({ host: e, challenge: t, response: r, responseHeader: n, publicKey: o, context: s }) {
-  const a = r.headers.get(n);
-  if (!a)
+async function ct({ host: e, challenge: t, response: r, responseHeader: n, publicKey: o, context: a }) {
+  const s = r.headers.get(n);
+  if (!s)
     return !1;
-  const i = await ut({ base64PublicKey: o }), c = Uint8Array.fromBase64(a), u = dt({ host: e, challenge: t, context: s });
+  const i = await ut({ base64PublicKey: o }), c = Uint8Array.fromBase64(s), u = dt({ host: e, challenge: t, context: a });
   return crypto.subtle.verify(
     { name: "Ed25519" },
     i,
@@ -745,17 +745,17 @@ ${t}`;
 }
 async function v(e, t) {
   var p;
-  const r = new URL(e.url), n = r.pathname, o = r.searchParams, s = e.destination === "document", { mirroring: a } = await t.getConfiguration(), i = (p = a.telemetry) == null ? void 0 : p.endpoint, c = s && !!i, u = n.replace(/^\//, ""), d = [];
-  s && await tt();
+  const r = new URL(e.url), n = r.pathname, o = r.searchParams, a = e.destination === "document", { mirroring: s } = await t.getConfiguration(), i = (p = s.telemetry) == null ? void 0 : p.endpoint, c = a && !!i, u = n.replace(/^\//, ""), d = [];
+  a && await tt();
   let w = await ue();
   for (; w; ) {
     const m = w.url, P = new URL(u, m);
     P.search = o.toString();
     try {
-      if (s && a.challenge) {
+      if (a && s.challenge) {
         const C = await it({
           origin: m,
-          challenge: a.challenge
+          challenge: s.challenge
         });
         if (t.logger(
           `(mirroring) Mirror challenge ${C ? "passed" : "failed"} for: ${m}`
@@ -765,7 +765,7 @@ async function v(e, t) {
       const f = await ke({
         url: P.href,
         request: e,
-        mirroringConfig: a
+        mirroringConfig: s
       }).catch((C) => C.name === "TimeoutError" ? Promise.reject(
         Object.assign(
           new Response("", {
@@ -828,12 +828,12 @@ function Rr({ serviceWorkerController: e } = {}) {
   e.logger("(bookmark) Module registered."), e.addRoute(t, ht, "GET"), e.logger(`(bookmark) GET "/${l}/bookmark/" endpoint registered.`), e.addRoute(r, mt, "GET"), e.logger(`(bookmark) GET "/${l}/bookmark/:path" endpoint registered.`), e.addRoute(r, (o) => pt({ ...o, expirationManager: n }), "POST"), e.logger(`(bookmark) POST "/${l}/bookmark/:path" endpoint registered.`), e.addRoute(r, ft, "DELETE"), e.logger(`(bookmark) DELETE "/${l}/bookmark/:path" endpoint registered.`), e.addRoute(gt, (o) => bt({ ...o, expirationManager: n }), "GET");
 }
 async function ht() {
-  const e = `${l}-bookmarks`, t = await caches.open(e), n = (await t.keys()).map((o) => t.match(o).then(async (s) => {
-    const a = await s.text(), i = s.headers.get("X-metadata");
+  const e = `${l}-bookmarks`, t = await caches.open(e), n = (await t.keys()).map((o) => t.match(o).then(async (a) => {
+    const s = await a.text(), i = a.headers.get("X-metadata");
     return {
       url: o.url,
       path: new URL(o.url).pathname,
-      html: a,
+      html: s,
       metadata: i ? JSON.parse(i) : null
     };
   }));
@@ -849,16 +849,16 @@ async function ht() {
 }
 async function mt({ event: e }) {
   const t = new URL(e.request.url), r = `${l}-bookmarks`, n = await caches.open(r), o = te(l, t);
-  return o ? n.match(o).then(async (s) => {
-    if (!s)
+  return o ? n.match(o).then(async (a) => {
+    if (!a)
       return new Response(null, {
         status: 404,
         statusText: "Not Found"
       });
-    const a = await s.text(), i = s.headers.get("X-metadata"), c = JSON.stringify({
+    const s = await a.text(), i = a.headers.get("X-metadata"), c = JSON.stringify({
       url: e.request.url,
       path: o,
-      html: a,
+      html: s,
       metadata: i ? JSON.parse(i) : null
     });
     return new Response(c, {
@@ -873,13 +873,13 @@ async function mt({ event: e }) {
   });
 }
 async function pt({ event: e, serviceWorkerController: t, expirationManager: r }) {
-  const n = new URL(e.request.url), o = `${l}-bookmarks`, s = te(l, n);
-  if (!s)
+  const n = new URL(e.request.url), o = `${l}-bookmarks`, a = te(l, n);
+  if (!a)
     return new Response(JSON.stringify({}), {
       status: 400,
       statusText: "Not a valid bookmark path"
     });
-  const a = new Request(s), i = await t.fetcher(a);
+  const s = new Request(a), i = await t.fetcher(s);
   if (!i.ok)
     return i;
   let c;
@@ -889,7 +889,7 @@ async function pt({ event: e, serviceWorkerController: t, expirationManager: r }
   } catch {
     c = i;
   }
-  return caches.open(o).then((u) => u.put(s, c)).then(async () => (await r.updateTimestamp(s), await r.expireEntries(), new Response(null, {
+  return caches.open(o).then((u) => u.put(a, c)).then(async () => (await r.updateTimestamp(a), await r.expireEntries(), new Response(null, {
     status: 200
   }))).catch((u) => new Response(null, {
     status: 500,
@@ -923,7 +923,7 @@ async function bt({
   expirationManager: t,
   event: r
 }) {
-  const o = e.modules.includes("mirroring") ? (s) => v(s, e) : fetch;
+  const o = e.modules.includes("mirroring") ? (a) => v(a, e) : fetch;
   return ee({
     cacheName: `${l}-bookmarks`,
     expirationManager: t,
@@ -947,41 +947,41 @@ async function yt({ serviceWorkerController: e }) {
   const { contentBundles: t } = await e.getConfiguration();
   return t.pages.map((r) => {
     const { metadata: n = {} } = r, o = new Request(r.url);
-    return e.fetcher(o).then((s) => {
-      if (!s.ok)
+    return e.fetcher(o).then((a) => {
+      if (!a.ok)
         throw new Error(`Failed to fetch ${r.url}`);
-      let a;
+      let s;
       try {
-        a = new Response(s.body, { ...s }), a.headers.set("x-metadata", JSON.stringify(n));
+        s = new Response(a.body, { ...a }), s.headers.set("x-metadata", JSON.stringify(n));
       } catch {
-        a = s;
+        s = a;
       }
-      return a;
-    }).then((s) => {
-      const a = $(r.url, r.revision);
-      return caches.open(`${l}-content-bundles`).then((i) => i.put(a, s));
-    }).catch((s) => (console.info(s.message, ", skipping caching content bundle"), Promise.resolve()));
+      return s;
+    }).then((a) => {
+      const s = $(r.url, r.revision);
+      return caches.open(`${l}-content-bundles`).then((i) => i.put(s, a));
+    }).catch((a) => (console.info(a.message, ", skipping caching content bundle"), Promise.resolve()));
   });
 }
 async function kt({ serviceWorkerController: e }) {
   const { contentBundles: t } = await e.getConfiguration(), r = t.pages.map((n) => $(n.url, n.revision));
   return caches.open(`${l}-content-bundles`).then((n) => n.keys().then((o) => {
-    o.forEach((s) => {
-      const a = s.url.replace(self.location.origin, "");
-      if (!r.includes(a))
-        return n.delete(s);
+    o.forEach((a) => {
+      const s = a.url.replace(self.location.origin, "");
+      if (!r.includes(s))
+        return n.delete(a);
     });
   }));
 }
 const xt = async () => {
   try {
     const e = await caches.open(`${l}-content-bundles`), t = await e.keys(), r = await Promise.all(t.map(async (n) => {
-      const o = await e.match(n), s = o.headers.get("Content-Type"), a = o.headers.get("X-metadata"), i = await o.text();
+      const o = await e.match(n), a = o.headers.get("Content-Type"), s = o.headers.get("X-metadata"), i = await o.text();
       return {
         url: n.url,
         path: new URL(n.url).pathname,
-        metadata: a ? JSON.parse(a) : null,
-        contentType: s,
+        metadata: s ? JSON.parse(s) : null,
+        contentType: a,
         content: i
       };
     }));
@@ -1029,10 +1029,10 @@ async function vt({ serviceWorkerController: e }) {
     const n = $(r.url, r.revision);
     return Promise.all([
       caches.open(`${l}-offline-assets`).then((o) => {
-        const s = new Request(n);
-        return e.fetcher(s).then((a) => {
-          if (a.ok)
-            return o.put(n, a);
+        const a = new Request(n);
+        return e.fetcher(a).then((s) => {
+          if (s.ok)
+            return o.put(n, s);
         });
       })
     ]);
@@ -1041,10 +1041,10 @@ async function vt({ serviceWorkerController: e }) {
 async function $t({ serviceWorkerController: e }) {
   const { offlineAssets: t } = await e.getConfiguration(), r = t.assets.map((n) => $(n.url, n.revision));
   return caches.open(`${l}-offline-assets`).then((n) => n.keys().then((o) => {
-    o.forEach((s) => {
-      const a = s.url.replace(self.location.origin, "");
-      if (!r.includes(a))
-        return n.delete(s);
+    o.forEach((a) => {
+      const s = a.url.replace(self.location.origin, "");
+      if (!r.includes(s))
+        return n.delete(a);
     });
   }));
 }
@@ -1144,9 +1144,9 @@ const Nr = async (e = {}) => {
   t.addRoute(
     r,
     async (n) => {
-      const { fallbackPages: o } = await t.getConfiguration(), { language: s, textDirection: a, customProperties: i, templateStrings: c } = o;
+      const { fallbackPages: o } = await t.getConfiguration(), { language: a, textDirection: s, customProperties: i, templateStrings: c } = o;
       return new Response(
-        Te({ language: s, textDirection: a, customProperties: i, templateStrings: c }),
+        Te({ language: a, textDirection: s, customProperties: i, templateStrings: c }),
         { headers: { "Content-Type": "text/html" } }
       );
     },
@@ -1166,10 +1166,10 @@ async function Ht({ serviceWorkerController: e }) {
 async function Ut({ serviceWorkerController: e }) {
   const { fallbackPages: t } = await e.getConfiguration(), r = t == null ? void 0 : t.pages.map((n) => $(n.url, n.revision));
   return caches.open(`${l}-fallback-pages`).then((n) => n.keys().then((o) => {
-    o.forEach((s) => {
-      const a = s.url.replace(self.location.origin, "");
-      if (!r.includes(a))
-        return n.delete(s);
+    o.forEach((a) => {
+      const s = a.url.replace(self.location.origin, "");
+      if (!r.includes(s))
+        return n.delete(a);
     });
   }));
 }
@@ -1177,24 +1177,24 @@ async function Bt({ event: e, serviceWorkerController: t }) {
   const { fallbackPages: r } = await t.getConfiguration(), {
     customProperties: n,
     language: o,
-    pages: s,
-    templateStrings: a,
+    pages: a,
+    templateStrings: s,
     textDirection: i
   } = r;
   if (await re({ request: e.request, configuration: r }))
     return;
-  if (s.length < 1)
+  if (a.length < 1)
     return t.logger("(fallback-pages) No custom fallback pages configured. Returning the default fallback page."), new Response(
-      Te({ language: o, textDirection: i, customProperties: n, templateStrings: a }),
+      Te({ language: o, textDirection: i, customProperties: n, templateStrings: s }),
       { headers: { "Content-Type": "text/html" } }
     );
-  const c = s.find(
+  const c = a.find(
     (d) => d.refererRegex ? new RegExp(d.refererRegex).test(e.request.headers.get("referer")) : !1
-  ), u = c ? c.url : s.find((d) => !d.refererRegex).url;
+  ), u = c ? c.url : a.find((d) => !d.refererRegex).url;
   return caches.open(`${l}-fallback-pages`).then((d) => d.match(u, { ignoreSearch: !0 }).then((w) => (w && t.logger("(fallback-pages) Custom fallback page found. Returning cached response."), w)));
 }
 function Te({ language: e, textDirection: t, customProperties: r, templateStrings: n }) {
-  const o = r ? `:root { ${Object.entries(r).map(([a, i]) => `--${a}: ${i};`).join(" ")} } ${he}` : he, s = _t({
+  const o = r ? `:root { ${Object.entries(r).map(([s, i]) => `--${s}: ${i};`).join(" ")} } ${he}` : he, a = _t({
     language: e,
     textDirection: t,
     templateStrings: n,
@@ -1203,11 +1203,11 @@ function Te({ language: e, textDirection: t, customProperties: r, templateString
   });
   return Dt.replace(
     /{{\s?(.*?)\s?}}/g,
-    (a, i) => s[a] || a
+    (s, i) => a[s] || s
   );
 }
 const St = (e) => {
-  const t = (e == null ? void 0 : e.customProperties) || {}, r = (e == null ? void 0 : e.templateStrings) || {}, n = (e == null ? void 0 : e.language) || "en", o = (e == null ? void 0 : e.textDirection) || "ltr", s = (e == null ? void 0 : e.showHiddenTabs) || !1, a = (e == null ? void 0 : e.excludeByPath) || [], i = e == null ? void 0 : e.excludeByCookieName, u = (e != null && e.pages ? Array.isArray(e.pages) ? e.pages : [e.pages] : []).map((d) => typeof d == "string" ? { url: d, revision: null, refererRegex: null } : {
+  const t = (e == null ? void 0 : e.customProperties) || {}, r = (e == null ? void 0 : e.templateStrings) || {}, n = (e == null ? void 0 : e.language) || "en", o = (e == null ? void 0 : e.textDirection) || "ltr", a = (e == null ? void 0 : e.showHiddenTabs) || !1, s = (e == null ? void 0 : e.excludeByPath) || [], i = e == null ? void 0 : e.excludeByCookieName, u = (e != null && e.pages ? Array.isArray(e.pages) ? e.pages : [e.pages] : []).map((d) => typeof d == "string" ? { url: d, revision: null, refererRegex: null } : {
     url: d.url,
     revision: d.revision || null,
     refererRegex: d.refererRegex || null
@@ -1217,8 +1217,8 @@ const St = (e) => {
     textDirection: o,
     customProperties: t,
     templateStrings: r,
-    showHiddenTabs: s,
-    excludeByPath: a,
+    showHiddenTabs: a,
+    excludeByPath: s,
     excludeByCookieName: i,
     pages: u
   };
@@ -1241,14 +1241,14 @@ const It = {
   "incorrect-type": ({ expectedType: e, paramName: t, moduleName: r, className: n, funcName: o }) => {
     if (!e || !t || !r || !o)
       throw new Error("Unexpected input to 'incorrect-type' error.");
-    const s = n ? `${n}.` : "";
-    return `The parameter '${t}' passed into '${r}.${s}${o}()' must be of type ${e}.`;
+    const a = n ? `${n}.` : "";
+    return `The parameter '${t}' passed into '${r}.${a}${o}()' must be of type ${e}.`;
   },
-  "incorrect-class": ({ expectedClassName: e, paramName: t, moduleName: r, className: n, funcName: o, isReturnValueProblem: s }) => {
+  "incorrect-class": ({ expectedClassName: e, paramName: t, moduleName: r, className: n, funcName: o, isReturnValueProblem: a }) => {
     if (!e || !r || !o)
       throw new Error("Unexpected input to 'incorrect-class' error.");
-    const a = n ? `${n}.` : "";
-    return s ? `The return value from '${r}.${a}${o}()' must be an instance of class ${e}.` : `The parameter '${t}' passed into '${r}.${a}${o}()' must be an instance of class ${e}.`;
+    const s = n ? `${n}.` : "";
+    return a ? `The return value from '${r}.${s}${o}()' must be an instance of class ${e}.` : `The parameter '${t}' passed into '${r}.${s}${o}()' must be an instance of class ${e}.`;
   },
   "missing-a-method": ({ expectedMethod: e, paramName: t, moduleName: r, className: n, funcName: o }) => {
     if (!e || !t || !r || !n || !o)
@@ -1281,7 +1281,7 @@ const It = {
   "duplicate-queue-name": ({ name: e }) => `The Queue name '${e}' is already being used. All instances of backgroundSync.Queue must be given unique names.`,
   "expired-test-without-max-age": ({ methodName: e, paramName: t }) => `The '${e}()' method can only be used when the '${t}' is used in the constructor.`,
   "unsupported-route-type": ({ moduleName: e, className: t, funcName: r, paramName: n }) => `The supplied '${n}' parameter was an unsupported type. Please check the docs for ${e}.${t}.${r} for valid input types.`,
-  "not-array-of-class": ({ value: e, expectedClass: t, moduleName: r, className: n, funcName: o, paramName: s }) => `The supplied '${s}' parameter must be an array of '${t}' objects. Received '${JSON.stringify(e)},'. Please check the call to ${r}.${n}.${o}() to fix the issue.`,
+  "not-array-of-class": ({ value: e, expectedClass: t, moduleName: r, className: n, funcName: o, paramName: a }) => `The supplied '${a}' parameter must be an array of '${t}' objects. Received '${JSON.stringify(e)},'. Please check the call to ${r}.${n}.${o}() to fix the issue.`,
   "max-entries-or-age-required": ({ moduleName: e, className: t, funcName: r }) => `You must define either config.maxEntries or config.maxAgeSecondsin ${e}.${t}.${r}`,
   "statuses-or-headers-required": ({ moduleName: e, className: t, funcName: r }) => `You must define either config.statuses or config.headersin ${e}.${t}.${r}`,
   "invalid-string": ({ moduleName: e, funcName: t, paramName: r }) => {
@@ -1387,26 +1387,26 @@ const Gt = (e, t) => {
     groupCollapsed: "#3498db",
     groupEnd: null
     // No colored prefix on groupEnd
-  }, r = function(s, a) {
+  }, r = function(a, s) {
     if (self.__WB_DISABLE_DEV_LOGS)
       return;
-    if (s === "groupCollapsed" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-      console[s](...a);
+    if (a === "groupCollapsed" && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+      console[a](...s);
       return;
     }
     const i = [
-      `background: ${t[s]}`,
+      `background: ${t[a]}`,
       "border-radius: 0.5em",
       "color: white",
       "font-weight: bold",
       "padding: 2px 0.5em"
     ], c = e ? [] : ["%cworkbox", i.join(";")];
-    console[s](...c, ...a), s === "groupCollapsed" && (e = !0), s === "groupEnd" && (e = !1);
+    console[a](...c, ...s), a === "groupCollapsed" && (e = !0), a === "groupEnd" && (e = !1);
   }, n = {}, o = Object.keys(t);
-  for (const s of o) {
-    const a = s;
-    n[a] = (...i) => {
-      r(a, i);
+  for (const a of o) {
+    const s = a;
+    n[s] = (...i) => {
+      r(s, i);
     };
   }
   return n;
@@ -1483,14 +1483,14 @@ class Qt extends U {
       funcName: "constructor",
       paramName: "pattern"
     });
-    const o = ({ url: s }) => {
-      const a = t.exec(s.href);
-      if (a) {
-        if (s.origin !== location.origin && a.index !== 0) {
-          process.env.NODE_ENV !== "production" && h.debug(`The regular expression '${t.toString()}' only partially matched against the cross-origin URL '${s.toString()}'. RegExpRoute's will only handle cross-origin requests if they match the entire URL.`);
+    const o = ({ url: a }) => {
+      const s = t.exec(a.href);
+      if (s) {
+        if (a.origin !== location.origin && s.index !== 0) {
+          process.env.NODE_ENV !== "production" && h.debug(`The regular expression '${t.toString()}' only partially matched against the cross-origin URL '${a.toString()}'. RegExpRoute's will only handle cross-origin requests if they match the entire URL.`);
           return;
         }
-        return a.slice(1);
+        return s.slice(1);
       }
     };
     super(o, r, n);
@@ -1551,8 +1551,8 @@ class Zt {
         process.env.NODE_ENV !== "production" && h.debug("Caching URLs from the window", r.urlsToCache);
         const n = Promise.all(r.urlsToCache.map((o) => {
           typeof o == "string" && (o = [o]);
-          const s = new Request(...o);
-          return this.handleRequest({ request: s, event: t });
+          const a = new Request(...o);
+          return this.handleRequest({ request: a, event: t });
         }));
         t.waitUntil(n), t.ports && t.ports[0] && n.then(() => t.ports[0].postMessage(!0));
       }
@@ -1582,17 +1582,17 @@ class Zt {
       process.env.NODE_ENV !== "production" && h.debug("Workbox Router only supports URLs that start with 'http'.");
       return;
     }
-    const o = n.origin === location.origin, { params: s, route: a } = this.findMatchingRoute({
+    const o = n.origin === location.origin, { params: a, route: s } = this.findMatchingRoute({
       event: r,
       request: t,
       sameOrigin: o,
       url: n
     });
-    let i = a && a.handler;
+    let i = s && s.handler;
     const c = [];
-    process.env.NODE_ENV !== "production" && i && (c.push(["Found a route to handle this request:", a]), s && c.push([
+    process.env.NODE_ENV !== "production" && i && (c.push(["Found a route to handle this request:", s]), a && c.push([
       "Passing the following params to the route's handler:",
-      s
+      a
     ]));
     const u = t.method;
     if (!i && this._defaultHandlerMap.has(u) && (process.env.NODE_ENV !== "production" && c.push(`Failed to find a matching route. Falling back to the default handler for ${u}.`), i = this._defaultHandlerMap.get(u)), !i) {
@@ -1604,22 +1604,22 @@ class Zt {
     }), h.groupEnd());
     let d;
     try {
-      d = i.handle({ url: n, request: t, event: r, params: s });
+      d = i.handle({ url: n, request: t, event: r, params: a });
     } catch (p) {
       d = Promise.reject(p);
     }
-    const w = a && a.catchHandler;
+    const w = s && s.catchHandler;
     return d instanceof Promise && (this._catchHandler || w) && (d = d.catch(async (p) => {
       if (w) {
-        process.env.NODE_ENV !== "production" && (h.groupCollapsed(`Error thrown when responding to:  ${M(n)}. Falling back to route's Catch Handler.`), h.error("Error thrown by:", a), h.error(p), h.groupEnd());
+        process.env.NODE_ENV !== "production" && (h.groupCollapsed(`Error thrown when responding to:  ${M(n)}. Falling back to route's Catch Handler.`), h.error("Error thrown by:", s), h.error(p), h.groupEnd());
         try {
-          return await w.handle({ url: n, request: t, event: r, params: s });
+          return await w.handle({ url: n, request: t, event: r, params: a });
         } catch (m) {
           m instanceof Error && (p = m);
         }
       }
       if (this._catchHandler)
-        return process.env.NODE_ENV !== "production" && (h.groupCollapsed(`Error thrown when responding to:  ${M(n)}. Falling back to global Catch Handler.`), h.error("Error thrown by:", a), h.error(p), h.groupEnd()), this._catchHandler.handle({ url: n, request: t, event: r });
+        return process.env.NODE_ENV !== "production" && (h.groupCollapsed(`Error thrown when responding to:  ${M(n)}. Falling back to global Catch Handler.`), h.error("Error thrown by:", s), h.error(p), h.groupEnd()), this._catchHandler.handle({ url: n, request: t, event: r });
       throw p;
     })), d;
   }
@@ -1639,13 +1639,13 @@ class Zt {
    *     otherwise.
    */
   findMatchingRoute({ url: t, sameOrigin: r, request: n, event: o }) {
-    const s = this._routes.get(n.method) || [];
-    for (const a of s) {
+    const a = this._routes.get(n.method) || [];
+    for (const s of a) {
       let i;
-      const c = a.match({ url: t, sameOrigin: r, request: n, event: o });
+      const c = s.match({ url: t, sameOrigin: r, request: n, event: o });
       if (c)
-        return process.env.NODE_ENV !== "production" && c instanceof Promise && h.warn(`While routing ${M(t)}, an async matchCallback function was used. Please convert the following route to use a synchronous matchCallback function:`, a), i = c, (Array.isArray(i) && i.length === 0 || c.constructor === Object && // eslint-disable-line
-        Object.keys(c).length === 0 || typeof c == "boolean") && (i = void 0), { route: a, params: i };
+        return process.env.NODE_ENV !== "production" && c instanceof Promise && h.warn(`While routing ${M(t)}, an async matchCallback function was used. Please convert the following route to use a synchronous matchCallback function:`, s), i = c, (Array.isArray(i) && i.length === 0 || c.constructor === Object && // eslint-disable-line
+        Object.keys(c).length === 0 || typeof c == "boolean") && (i = void 0), { route: s, params: i };
     }
     return {};
   }
@@ -1731,7 +1731,7 @@ const er = () => (L || (L = new Zt(), L.addFetchListener(), L.addCacheListener()
 function T(e, t, r) {
   let n;
   if (typeof e == "string") {
-    const s = new URL(e, location.href);
+    const a = new URL(e, location.href);
     if (process.env.NODE_ENV !== "production") {
       if (!(e.startsWith("/") || e.startsWith("http")))
         throw new y("invalid-string", {
@@ -1739,11 +1739,11 @@ function T(e, t, r) {
           funcName: "registerRoute",
           paramName: "capture"
         });
-      const i = e.startsWith("http") ? s.pathname : e, c = "[*:?+]";
+      const i = e.startsWith("http") ? a.pathname : e, c = "[*:?+]";
       new RegExp(`${c}`).exec(i) && h.debug(`The '$capture' parameter contains an Express-style wildcard character (${c}). Strings are now always interpreted as exact matches; use a RegExp for partial or wildcard matches.`);
     }
-    const a = ({ url: i }) => (process.env.NODE_ENV !== "production" && i.pathname === s.pathname && i.origin !== s.origin && h.debug(`${e} only partially matches the cross-origin URL ${i.toString()}. This route will only handle cross-origin requests if they match the entire URL.`), i.href === s.href);
-    n = new U(a, t, r);
+    const s = ({ url: i }) => (process.env.NODE_ENV !== "production" && i.pathname === a.pathname && i.origin !== a.origin && h.debug(`${e} only partially matches the cross-origin URL ${i.toString()}. This route will only handle cross-origin requests if they match the entire URL.`), i.href === a.href);
+    n = new U(s, t, r);
   } else if (e instanceof RegExp)
     n = new Qt(e, t, r);
   else if (typeof e == "function")
@@ -1770,14 +1770,14 @@ function rr(e) {
   return r;
 }
 async function nr(e, t, r) {
-  const n = Object.entries(e).sort(([i], [c]) => i.localeCompare(c)), o = new TextEncoder().encode(JSON.stringify(n)), s = await or(r), a = rr(t);
+  const n = Object.entries(e).sort(([i], [c]) => i.localeCompare(c)), o = new TextEncoder().encode(JSON.stringify(n)), a = await or(r), s = rr(t);
   return crypto.subtle.verify(
     {
       name: "ECDSA",
       hash: { name: "SHA-256" }
     },
-    s,
     a,
+    s,
     o
   );
 }
@@ -1801,37 +1801,37 @@ const Ar = async (e = {}) => {
   t.modules.push("mirroring");
   const r = new Z(`${l}-mirroring`, {
     maxEntries: 20
-  }), n = ({ event: a }) => new URL(a.request.url).pathname === `/${l}/add-mirror/`, o = ({ event: a }) => new URL(a.request.url).pathname === `/${l}/mirror-status/`, s = ({ event: a }) => new URL(a.request.url).pathname === `/${l}/mirror-retry/`;
-  t.logger("(mirroring) Module registered"), t.addInstallHandler(sr), t.addRoute(n, mr, "GET"), t.logger(`(mirroring) GET "/${l}/add-mirror/" endpoint registered.`), t.addRoute(o, dr, "GET"), t.logger(`(mirroring) GET "/${l}/mirror-status/" endpoint registered.`), t.addRoute(s, hr, "GET"), t.logger(`(mirroring) GET "/${l}/mirror-retry/" endpoint registered.`), t.addRoute(ir, (a) => lr({ ...a, expirationManager: r }), "GET"), t.addRoute(cr, ur, "GET");
+  }), n = ({ event: s }) => new URL(s.request.url).pathname === `/${l}/add-mirror/`, o = ({ event: s }) => new URL(s.request.url).pathname === `/${l}/mirror-status/`, a = ({ event: s }) => new URL(s.request.url).pathname === `/${l}/mirror-retry/`;
+  t.logger("(mirroring) Module registered"), t.addInstallHandler(ar), t.addRoute(n, mr, "GET"), t.logger(`(mirroring) GET "/${l}/add-mirror/" endpoint registered.`), t.addRoute(o, dr, "GET"), t.logger(`(mirroring) GET "/${l}/mirror-status/" endpoint registered.`), t.addRoute(a, hr, "GET"), t.logger(`(mirroring) GET "/${l}/mirror-retry/" endpoint registered.`), t.addRoute(ir, (s) => lr({ ...s, expirationManager: r }), "GET"), t.addRoute(cr, ur, "GET");
 };
-async function sr({ serviceWorkerController: e }) {
+async function ar({ serviceWorkerController: e }) {
   const { mirroring: t } = await e.getConfiguration(), { urls: r } = t, n = r.map((o) => {
-    const s = Date.now();
+    const a = Date.now();
     return {
       url: o.url,
-      lastModified: s,
+      lastModified: a,
       status: b,
       isPrimary: o.isPrimary
     };
   });
   return F(n);
 }
-const ar = (e) => {
-  var s, a, i, c, u;
+const sr = (e) => {
+  var a, s, i, c;
   const t = self.location.origin, r = (e == null ? void 0 : e.urls) || [], n = [
     {
       url: t,
       isPrimary: !0
     },
-    ...r.map((d) => ({
-      url: d,
+    ...r.map((u) => ({
+      url: u,
       isPrimary: !1
     }))
   ], o = e != null && e.strategy && K.includes(e.strategy) ? e.strategy : "network-only";
   if (e != null && e.challenge) {
-    if (!((s = e == null ? void 0 : e.challenge) != null && s.publicKey))
+    if (!((a = e == null ? void 0 : e.challenge) != null && a.publicKey))
       throw new Error("[mirroring]: challenge.publicKey is required when challenge is configured");
-    if (!((a = e == null ? void 0 : e.challenge) != null && a.path))
+    if (!((s = e == null ? void 0 : e.challenge) != null && s.path))
       throw new Error("[mirroring]: challenge.path is required when challenge is configured");
     if ((i = e == null ? void 0 : e.challenge) != null && i.headerFormat && !X[e.challenge.headerFormat])
       throw new Error(
@@ -1847,13 +1847,10 @@ const ar = (e) => {
     timeout: (e == null ? void 0 : e.timeout) || 3e3,
     strategy: o,
     setRepressHeaders: (e == null ? void 0 : e.setRepressHeaders) || !1,
-    ...((u = e == null ? void 0 : e.telemetry) == null ? void 0 : u.endpoint) && {
-      telemetry: e.telemetry
-    },
     ...(e == null ? void 0 : e.challenge) && {
       challenge: {
         ...e.challenge,
-        headerFormat: e.challenge.headerFormat || at,
+        headerFormat: e.challenge.headerFormat || st,
         context: e.challenge.context || ye
       }
     }
@@ -1867,10 +1864,10 @@ function cr({ event: e }) {
   return e.request.method === "GET" && new URL(e.request.url).origin === new URL(self.registration.scope).origin && !t.startsWith(`/${l}`);
 }
 async function lr({ event: e, serviceWorkerController: t, expirationManager: r }) {
-  const n = await t.getConfiguration(), { mirroring: o } = n, { strategy: s } = o, { request: a } = e;
-  if (await re({ request: a, configuration: o }))
-    return fetch(a);
-  const i = ge[s];
+  const n = await t.getConfiguration(), { mirroring: o } = n, { strategy: a } = o, { request: s } = e;
+  if (await re({ request: s, configuration: o }))
+    return fetch(s);
+  const i = ge[a];
   return i({ event: e, cacheName: `${l}-mirroring`, fetcher: (c) => v(c, t), expirationManager: r });
 }
 async function ur({ event: e, serviceWorkerController: t }) {
@@ -1884,7 +1881,7 @@ async function ur({ event: e, serviceWorkerController: t }) {
 }
 async function dr() {
   let e = "unknown";
-  const t = await D(), r = t.find((s) => s.isPrimary && s.status === b), n = t.find((s) => s.status === b), o = t.every((s) => s.status === R);
+  const t = await D(), r = t.find((a) => a.isPrimary && a.status === b), n = t.find((a) => a.status === b), o = t.every((a) => a.status === R);
   return r ? e = "up" : n ? e = "low" : o && (e = "down"), new Response(JSON.stringify({
     status: e,
     mirrors: t
@@ -1935,16 +1932,16 @@ async function mr({ event: e, serviceWorkerController: t }) {
         status: 401,
         statusText: "Unauthorized: Invalid signature"
       });
-    const a = await D();
-    return a.some((i) => i.url === o.url) ? new Response(null, {
+    const s = await D();
+    return s.some((i) => i.url === o.url) ? new Response(null, {
       status: 409,
       statusText: "Conflict: Mirror already exists"
-    }) : (a.push({
+    }) : (s.push({
       lastModified: Date.now(),
       status: b,
       isPrimary: !1,
       ...o
-    }), await F(a), new Response(null, {
+    }), await F(s), new Response(null, {
       status: 302,
       headers: { Location: "/" }
     }));
@@ -1963,24 +1960,24 @@ const W = /* @__PURE__ */ new Map(), Mr = (e = {}) => {
 };
 async function pr({ serviceWorkerController: e }) {
   const t = await e.getConfiguration(), { cachingStrategies: r } = t, n = await caches.keys(), o = new Set(r.map(
-    ({ urlPattern: a }) => `${l}-caching-strategies--${a}`
-  )), s = n.filter(
-    (a) => a.startsWith(`${l}-caching-strategies--`) && !o.has(a)
+    ({ urlPattern: s }) => `${l}-caching-strategies--${s}`
+  )), a = n.filter(
+    (s) => s.startsWith(`${l}-caching-strategies--`) && !o.has(s)
   );
-  await Promise.all(s.map((a) => caches.delete(a)));
+  await Promise.all(a.map((s) => caches.delete(s)));
 }
 function fr({ event: e, configuration: t }) {
   const { cachingStrategies: r } = t;
   return Re(r, e.request.url);
 }
 async function gr({ event: e, serviceWorkerController: t }) {
-  const r = await t.getConfiguration(), { cachingStrategies: n } = r, { strategy: o, urlPattern: s } = Re(n, e.request.url), i = t.modules.includes("mirroring") ? (c) => v(c, t) : fetch;
-  return W.has(s) || W.set(s, new Z(`${l}-caching-strategies--${s}`, {
+  const r = await t.getConfiguration(), { cachingStrategies: n } = r, { strategy: o, urlPattern: a } = Re(n, e.request.url), i = t.modules.includes("mirroring") ? (c) => v(c, t) : fetch;
+  return W.has(a) || W.set(a, new Z(`${l}-caching-strategies--${a}`, {
     maxEntries: 20
   })), ge[o]({
-    cacheName: `${l}-caching-strategies--${s}`,
+    cacheName: `${l}-caching-strategies--${a}`,
     event: e,
-    expirationManager: W.get(s),
+    expirationManager: W.get(a),
     fetcher: i
   });
 }
@@ -2025,10 +2022,10 @@ async function ve({ configuration: e, serviceWorkerController: t }) {
       ...r.includes("offline-assets") && { offlineAssets: At(e.offlineAssets) },
       ...r.includes("content-bundles") && { contentBundles: Rt(e.contentBundles) },
       ...r.includes("caching-strategies") && { cachingStrategies: br(e.cachingStrategies) },
-      ...r.includes("mirroring") && { mirroring: ar(e.mirroring) },
+      ...r.includes("mirroring") && { mirroring: sr(e.mirroring) },
       debugMode: !0,
       publicKey: e.publicKey || ""
-    }, s = new Response(
+    }, a = new Response(
       JSON.stringify(o),
       {
         headers: {
@@ -2037,7 +2034,7 @@ async function ve({ configuration: e, serviceWorkerController: t }) {
         }
       }
     );
-    return await n.put("/configuration.json", s.clone()), t.setConfiguration(o), s;
+    return await n.put("/configuration.json", a.clone()), t.setConfiguration(o), a;
   });
 }
 async function kr(e) {
@@ -2055,7 +2052,7 @@ async function me(e, t) {
 var k;
 class xr {
   constructor() {
-    se(this, k, {});
+    ae(this, k, {});
     this.configurationFilePath = new URL(self.location).searchParams.get("configuration"), this.modules = [], this.installHandlers = [], this.activateHandlers = [], this.fallbackHandlers = [], this.routes = [], this.init();
   }
   fetcher(t) {
@@ -2145,7 +2142,7 @@ class xr {
     ), this.logger(`(service-worker-controller) GET "/${l}/configuration/update/" endpoint registered.`), T(() => !0, this.routeHandler.bind(this), "GET"), T(() => !0, this.routeHandler.bind(this), "POST"), T(() => !0, this.routeHandler.bind(this), "DELETE"), T(() => !0, this.routeHandler.bind(this), "PUT"), T(() => !0, this.routeHandler.bind(this), "PATCH"), T(() => !0, this.routeHandler.bind(this), "HEAD");
   }
   async routeHandler({ event: t }) {
-    const r = await this.getConfiguration(), n = await me(this.routes, async ({ matcher: o, method: s }) => await o({ event: t, configuration: r }) && s === t.request.method);
+    const r = await this.getConfiguration(), n = await me(this.routes, async ({ matcher: o, method: a }) => await o({ event: t, configuration: r }) && a === t.request.method);
     return n ? n.handler({ event: t, serviceWorkerController: this }).catch(() => this.handlerDidError(t)) : fetch(t.request).catch(() => this.handlerDidError(t));
   }
   /**
