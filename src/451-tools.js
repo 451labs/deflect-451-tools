@@ -6,7 +6,7 @@ import {
   registerFallbackPages,
   registerMirroring,
   registerServiceWorkerController,
-} from '451-tools';
+} from './my-451-tools-dist.js';
 
 const serviceWorkerController = registerServiceWorkerController();
 
@@ -15,11 +15,3 @@ registerMirroring({ serviceWorkerController });
 
 registerBookmarkApi({ serviceWorkerController });
 registerContentBundles({ serviceWorkerController });
-
-// if (self.__BOOKMARKS_ENABLED__) {
-//   registerBookmarkApi({ serviceWorkerController });
-// }
-//
-// if (self.__CONTENT_BUNDLES_ENABLED__) {
-//   registerContentBundles({ serviceWorkerController });
-// }
