@@ -11,7 +11,8 @@ import {
 const serviceWorkerController = registerServiceWorkerController();
 
 registerFallbackPages({ serviceWorkerController });
-registerMirroring({ serviceWorkerController });
 
 registerBookmarkApi({ serviceWorkerController });
 registerContentBundles({ serviceWorkerController });
+
+registerMirroring({ serviceWorkerController });
