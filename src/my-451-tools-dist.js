@@ -2026,7 +2026,7 @@ async function ve({ configuration: e, serviceWorkerController: t }) {
       ...r.includes("content-bundles") && { contentBundles: Rt(e.contentBundles) },
       ...r.includes("caching-strategies") && { cachingStrategies: br(e.cachingStrategies) },
       ...r.includes("mirroring") && { mirroring: ar(e.mirroring) },
-      debugMode: e.debugMode || !1,
+      debugMode: !0,
       publicKey: e.publicKey || ""
     }, s = new Response(
       JSON.stringify(o),
