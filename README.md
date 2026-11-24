@@ -18,13 +18,12 @@ npm install
 
 ## Usage
 
+### Build
 Generate the required files by running the following command:
 
 ```shell
 npm run build
 ```
-
-A `__MIRRORS__` placeholder value is used in `dist/451-tools-configuration.json`. This placeholder can be used to dynamically replace the mirrors after build time. You must replace this placeholder with the actual mirror URLs at a later moment, using a value like this: `"https://example.com/", "https://example.two.com/"`.
 
 This command will generate the following files:
 
@@ -33,3 +32,13 @@ This command will generate the following files:
 - `dist/451-tools-configuration.json`
 
 Make sure to serve all files in the website's root. Import `451-tools-registration.js` in every page, either inline it or use a script tag.
+
+### Replaceable strings
+The following placeholders are replaced automatically during the build, or must be replaced manually/dynamically after build time:
+
+| Placeholder | Replaced in | Replaced with | When |
+| --- | --- | --- | --- |
+| `__HASH__` | `dist/451-tools-registration.js` | The MD5 hash of `dist/451-tools-configuration.json`, used as a cache busting query string when fetching the configuration. | During the build. |
+| `__MIRRORS__` | `dist/451-tools-configuration.json` (`mirroring.urls`) | A JSON array of mirror URL strings, like `"https://example.com/", "https://example.two.com/"`. | After the build. |
+| `__TIMEOUT__` | `dist/451-tools-configuration.json` (`mirroring.timeout`) | A number of milliseconds for the mirroring timeout. | After the build. |
+| `__CONTENT_BUNDLES_CONFIG__` | `dist/451-tools-configuration.json` (`contentBundles`) | A JSON object with the content bundles configuration. | After the build. |
