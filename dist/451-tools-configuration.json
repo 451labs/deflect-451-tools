@@ -20,12 +20,17 @@
     "showHiddenTabs": true
   },
   "mirroring": {
-    "urls": [__MIRRORS__],
+    "urls": "__MIRRORS__",
     "excludeByPath": [
       "^/wp-admin/?.*",
       "^/wp-login\\.php$"
     ],
-    "timeout": __TIMEOUT__
+    "timeout": "__TIMEOUT__",
+    "excludeByCookieName": ["deflect_password3"],
+    "challenge": {
+      "path": "/_deflect/challenge",
+      "publicKey": "lJxJm/w+XRKsfBHw7eMHlDH/eiUJAg47Kq2NHwJt2Ww="
+    }
   },
   "contentBundles": "__CONTENT_BUNDLES_CONFIG__"
 }
