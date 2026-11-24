@@ -5,19 +5,21 @@
   "scripts": {
     "prebuild": "rm -rf dist && mkdir dist",
     "build": "npm run build:configuration && npm run build:registration && npm run build:kill-switch && npm run build:servicer-worker",
-    "build:configuration": "cpy src/451-tools-configuration.json dist/ --flat && replace-in-file \\\"__MIRRORS__\\\" [$npm_config_mirrors] dist/451-tools-configuration.json && replace-in-file \\\"__TIMEOUT__\\\" $npm_config_timeout dist/451-tools-configuration.json",
+    "build:configuration": "cpy src/451-tools-configuration.json dist/ --flat",
     "build:registration": "cpy src/451-tools-registration.js dist/ --flat && replace-in-file __HASH__ $(md5-file dist/451-tools-configuration.json) dist/451-tools-registration.js",
     "build:kill-switch": "cpy src/451-tools-kill-switch.js dist/ --flat",
-    "build:servicer-worker": "vite build"
+    "build:servicer-worker": "vite build",
+    "lint": "eslint src/ vite.config.js eslint.config.js"
   },
   "author": "Zamaneh Media",
   "devDependencies": {
-    "451-tools": "^2.1.1",
-    "cpy-cli": "^5.0.0",
-    "eslint": "^8.57.0",
+    "451-tools": "^2.3.0",
+    "@eslint/js": "^10.0.1",
+    "cpy-cli": "^7.0.0",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
     "md5-file": "^5.0.0",
-    "replace-in-file": "^7.1.0",
-    "vite": "^5.1.4",
-    "vite-plugin-eslint": "^1.8.1"
+    "replace-in-file": "^9.0.0",
+    "vite": "^8.3.8"
   }
 }

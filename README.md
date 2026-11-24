@@ -6,31 +6,24 @@ The Deflect 451 Tools package simplifies the process of integrating 451 Tools in
 
 1. Clone this repository:
 
-```
+```shell
 git clone https://github.com/ZamanehMedia/deflect-451-tools.git
 ```
 
 2. Install dependencies:
 
-```
+```shell
 npm install
 ```
 
 ## Usage
 
+### Build
 Generate the required files by running the following command:
 
+```shell
+npm run build
 ```
-npm run build --mirrors='"https://example.com/"'
-```
-
-The `--mirrors` argument can accept multiple items, separated by a comma without spaces. For example:
-
-```
---mirrors='"https://example.com/","https://example.two.com/"'
-```
-
-If the `--mirrors` argument is not passed, a `__MIRRORS__` placeholder value will be inserted instead in `dist/451-tools-configuration.json`. This placeholder can be used to dynamically replace the mirrors after build time. You must replace this placeholder with the actual mirror URLs at a later moment, using a value like this: `"https://example.com/", "https://example.two.com/"`.
 
 This command will generate the following files:
 
@@ -40,10 +33,12 @@ This command will generate the following files:
 
 Make sure to serve all files in the website's root. Import `451-tools-registration.js` in every page, either inline it or use a script tag.
 
-### Bookmarks
-To enable or disable bookmarks, replace `self.__BOOKMARKS_ENABLED__` with `true` or `false` in `dist/451-tools.js`.
+### Replaceable strings
+The following placeholders are replaced automatically during the build, or must be replaced manually/dynamically after build time:
 
-### Content bundles
-To enable or disable bookmarks:
-- Replace `self.__CONTENT_BUNDLES_ENABLED__` with `true` or `false` in `dist/451-tools.js`.
-- Replace `"__CONTENT_BUNDLES_CONFIG__"` with content bundle JSON config.
+| Placeholder | Replaced in | Replaced with | When |
+| --- | --- | --- | --- |
+| `__HASH__` | `dist/451-tools-registration.js` | The MD5 hash of `dist/451-tools-configuration.json`, used as a cache busting query string when fetching the configuration. | During the build. |
+| `__MIRRORS__` | `dist/451-tools-configuration.json` (`mirroring.urls`) | A JSON array of mirror URL strings, like `"https://example.com/", "https://example.two.com/"`. | After the build. |
+| `__TIMEOUT__` | `dist/451-tools-configuration.json` (`mirroring.timeout`) | A number of milliseconds for the mirroring timeout. | After the build. |
+| `__CONTENT_BUNDLES_CONFIG__` | `dist/451-tools-configuration.json` (`contentBundles`) | A JSON object with the content bundles configuration. | After the build. |
