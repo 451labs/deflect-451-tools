@@ -1,5 +1,3 @@
-/* eslint-disable no-constant-condition */
-
 import {
   registerBookmarkApi,
   registerContentBundles,
@@ -12,12 +10,8 @@ const serviceWorkerController = registerServiceWorkerController();
 
 registerFallbackPages({ serviceWorkerController });
 
-if (self.__BOOKMARKS_ENABLED__) {
-  registerBookmarkApi({ serviceWorkerController });
-}
+registerBookmarkApi({ serviceWorkerController });
 
-if (self.__CONTENT_BUNDLES_ENABLED__) {
-  registerContentBundles({ serviceWorkerController });
-}
+registerContentBundles({ serviceWorkerController });
 
 registerMirroring({ serviceWorkerController });

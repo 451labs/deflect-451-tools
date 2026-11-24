@@ -6,13 +6,13 @@ The Deflect 451 Tools package simplifies the process of integrating 451 Tools in
 
 1. Clone this repository:
 
-```
+```shell
 git clone https://github.com/ZamanehMedia/deflect-451-tools.git
 ```
 
 2. Install dependencies:
 
-```
+```shell
 npm install
 ```
 
@@ -20,17 +20,11 @@ npm install
 
 Generate the required files by running the following command:
 
-```
-npm run build --mirrors='"https://example.com/"'
-```
-
-The `--mirrors` argument can accept multiple items, separated by a comma without spaces. For example:
-
-```
---mirrors='"https://example.com/","https://example.two.com/"'
+```shell
+npm run build
 ```
 
-If the `--mirrors` argument is not passed, a `__MIRRORS__` placeholder value will be inserted instead in `dist/451-tools-configuration.json`. This placeholder can be used to dynamically replace the mirrors after build time. You must replace this placeholder with the actual mirror URLs at a later moment, using a value like this: `"https://example.com/", "https://example.two.com/"`.
+A `__MIRRORS__` placeholder value is used in `dist/451-tools-configuration.json`. This placeholder can be used to dynamically replace the mirrors after build time. You must replace this placeholder with the actual mirror URLs at a later moment, using a value like this: `"https://example.com/", "https://example.two.com/"`.
 
 This command will generate the following files:
 
@@ -39,11 +33,3 @@ This command will generate the following files:
 - `dist/451-tools-configuration.json`
 
 Make sure to serve all files in the website's root. Import `451-tools-registration.js` in every page, either inline it or use a script tag.
-
-### Bookmarks
-To enable or disable bookmarks, replace `self.__BOOKMARKS_ENABLED__` with `true` or `false` in `dist/451-tools.js`.
-
-### Content bundles
-To enable or disable bookmarks:
-- Replace `self.__CONTENT_BUNDLES_ENABLED__` with `true` or `false` in `dist/451-tools.js`.
-- Replace `"__CONTENT_BUNDLES_CONFIG__"` with content bundle JSON config.
